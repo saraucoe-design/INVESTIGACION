@@ -1,0 +1,35 @@
+stages:
+  prepare:
+    cmd: python src/make_dataset.py
+    deps:
+      - src/make_dataset.py
+      - data/raw/unmsm_digital_transformation_demo.csv
+    params:
+      - data
+    outs:
+      - data/processed/model_dataset.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/processed/model_dataset.csv
+    params:
+      - data.target
+      - data.id_columns
+      - split
+      - model
+      - mlflow
+    outs:
+      - models/model.joblib
+    metrics:
+      - reports/metrics.json:
+          cache: false
+    plots:
+      - reports/confusion_matrix.csv:
+          template: confusion
+          x: predicted
+          y: actual
+      - reports/roc_curve.csv:
+          x: fpr
+          y: tpr

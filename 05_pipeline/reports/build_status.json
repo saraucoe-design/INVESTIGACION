@@ -1,0 +1,4 @@
+{
+  "train": "not_executed",
+  "reason": "Command '['python', 'src/train.py']' returned non-zero exit status 1."
+}
