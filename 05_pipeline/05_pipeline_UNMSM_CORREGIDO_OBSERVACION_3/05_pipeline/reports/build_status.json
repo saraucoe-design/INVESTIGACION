@@ -1,0 +1,7 @@
+{
+  "train": "not_executed",
+  "reason": "Command '['python', 'src/train.py']' returned non-zero exit status 1.",
+  "artifact_status": "reproducibility_proof_of_concept",
+  "data_status": "synthetic_demonstration_microdata",
+  "interpretation": "technical_execution_status_only_not_empirical_findings"
+}

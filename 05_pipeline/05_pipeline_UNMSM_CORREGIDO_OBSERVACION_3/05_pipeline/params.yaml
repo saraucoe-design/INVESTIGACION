@@ -1,0 +1,21 @@
+data:
+  raw: data/raw/unmsm_digital_transformation_demo.csv
+  processed: data/processed/model_dataset.csv
+  target: high_quality_efficiency
+  id_columns:
+    - record_id
+
+split:
+  test_size: 0.25
+  random_state: 42
+  stratify: true
+
+model:
+  type: logistic_regression
+  C: 1.0
+  max_iter: 2000
+  class_weight: balanced
+
+mlflow:
+  experiment_name: unmsm-digital-transformation-classifier
+  tracking_uri: file:./mlruns
